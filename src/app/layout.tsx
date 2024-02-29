@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Poppins, Happy_Monkey, Montserrat } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { ThemeProvider } from "@/providers/theme-provider";
-// import ModalProvider from "@/providers/modal-provider";
+import ModalProvider from "@/providers/modal-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnarToaster } from "@/components/ui/sonner";
 
-const font = DM_Sans({ subsets: ["latin"] });
+const font = Montserrat({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "STAGE",
-  description: "platform that you need!",
+  description: "All in one Platform for Agency's",
 };
 
 export default function RootLayout({
@@ -21,23 +21,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider appearance={{ baseTheme: dark }}>
-      <html lang="en" suppressHydrationWarning>
-        <body className={font.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* <ModalProvider> */}
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" type="image/png" href="./assets/cube.png" />
+      </head>
+      <body className={font.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ModalProvider>
             {children}
             <Toaster />
             <SonnarToaster position="bottom-left" />
-            {/* </ModalProvider> */}
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+          </ModalProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
