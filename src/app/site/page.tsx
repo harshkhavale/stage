@@ -38,7 +38,7 @@ export default async function Home() {
             </p>
             <button className="bg-teal-500 m-8 md:p-4 p-2 happy-font font-bold rounded-3xl text-white">
               <Link className=" text-xs md:text-base" href={"/agency"}>
-                Let's get started -{">"}
+                Lets get started -{">"}
               </Link>
             </button>
           </div>
@@ -143,7 +143,7 @@ export default async function Home() {
               <CardDescription>{pricingCards[0].description}</CardDescription>
             </CardHeader>
             <CardContent>
-              <span className="text-4xl font-bold">$0</span>
+              <span className="text-4xl font-bold">0</span>
               <span>/ month</span>
             </CardContent>
             <CardFooter className="flex flex-col  items-start gap-4 ">

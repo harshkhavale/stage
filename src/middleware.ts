@@ -1,4 +1,4 @@
-import { authMiddleware } from '@clerk/nextjs'
+import { authMiddleware } from '@clerk/nextjs/server'
 import { NextResponse } from 'next/server'
 
 // This example protects all routes including api/trpc routes
@@ -16,6 +16,7 @@ export default authMiddleware({
     const pathWithSearchParams = `${url.pathname}${
       searchParams.length > 0 ? `?${searchParams}` : ''
     }`
+
 
     //if subdomain exists
     const customSubDomain = hostname
@@ -48,7 +49,8 @@ export default authMiddleware({
     }
   },
 })
+authMiddleware({ debug: true })
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
-}
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
+};

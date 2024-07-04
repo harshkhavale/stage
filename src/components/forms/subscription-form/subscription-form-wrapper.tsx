@@ -85,7 +85,7 @@ const SubscriptionFormWrapper = ({ customerId, planExists }: Props) => {
           >
             <CardHeader>
               <CardTitle>
-                ${price.unit_amount ? price.unit_amount / 100 : '0'}
+                ₹{price.unit_amount ? price.unit_amount / 100 : '0'}
                 <p className="text-sm text-muted-foreground">
                   {price.nickname}
                 </p>

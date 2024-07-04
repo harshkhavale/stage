@@ -58,7 +58,7 @@ const page = async ({ params }: Props) => {
         charge.created * 1000
       ).toLocaleDateString()}`,
       status: "Paid",
-      amount: `$${charge.amount / 100}`,
+      amount: `₹${charge.amount / 100}`,
     })),
   ];
 
@@ -79,8 +79,8 @@ const page = async ({ params }: Props) => {
           customerId={agencySubscription?.customerId || ""}
           amt={
             agencySubscription?.Subscription?.active === true
-              ? currentPlanDetails?.price || "$0"
-              : "$0"
+              ? currentPlanDetails?.price || "₹0"
+              : "₹0"
           }
           buttonCta={
             agencySubscription?.Subscription?.active === true

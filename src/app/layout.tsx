@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Poppins, Happy_Monkey, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
