@@ -94,7 +94,7 @@ const ContactPage = async ({ params }: Props) => {
                   <Badge className="bg-emerald-700">Active</Badge>
                 )}
               </TableCell>
-              <TableCell>{format(contact.createdAt, 'MM/dd/yyyy')}</TableCell>
+              <TableCell>{(contact.createdAt, 'MM/dd/yyyy')}</TableCell>
               <TableCell className="text-right">
                 {formatTotal(contact.Ticket)}
               </TableCell>

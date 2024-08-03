@@ -70,7 +70,7 @@ const SubscriptionFormWrapper = ({ customerId, planExists }: Props) => {
       }
     }
     createSecret()
-  }, [data, selectedPriceId, customerId])
+  }, [data, selectedPriceId, customerId, planExists, setClose, router])
 
   return (
     <div className="border-none transition-all">

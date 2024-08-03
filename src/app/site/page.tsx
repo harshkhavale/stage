@@ -30,11 +30,11 @@ export default async function Home() {
               Run your agency, in one place
             </p>{" "}
             <p className=" text-gray-700 md:px-20 my-8 happy-font bg-white dark:bg-black font-bold rounded-3xl dark:text-gray-400">
-              "Empower your agency with an all-in-one platform for website
+              Empower your agency with an all-in-one platform for website
               creation, management, and development. Streamline workflows,
               create stunning websites, and collaborate seamlessly—all in one
               place. Say goodbye to juggling multiple tools and maximize
-              efficiency with our comprehensive solution."
+              efficiency with our comprehensive solution.
             </p>
             <button className="bg-teal-500 m-8 md:p-4 p-2 happy-font font-bold rounded-3xl text-white">
               <Link className=" text-xs md:text-base" href={"/agency"}>
@@ -43,10 +43,10 @@ export default async function Home() {
             </button>
           </div>
           <div className="banner">
-            <img
+            <Image
               src={"./assets/smilingboy.png"}
               className=" w-full object-contain"
-              alt=""
+              alt="boy"
             />
           </div>
         </div>{" "}

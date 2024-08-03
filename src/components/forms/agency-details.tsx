@@ -93,7 +93,7 @@ const AgencyDetails = ({ data }: Props) => {
     if (data) {
       form.reset(data)
     }
-  }, [data])
+  }, [data, form])
 
   const handleSubmit = async (values: z.infer<typeof FormSchema>) => {
     try {

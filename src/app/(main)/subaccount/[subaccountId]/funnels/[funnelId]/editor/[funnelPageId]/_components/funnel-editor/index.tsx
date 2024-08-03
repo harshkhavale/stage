@@ -19,7 +19,7 @@ const FunnelEditor = ({ funnelPageId, liveMode }: Props) => {
         payload: { value: true },
       })
     }
-  }, [liveMode])
+  }, [dispatch, liveMode])
 
   //CHALLENGE: make this more performant
   useEffect(() => {
