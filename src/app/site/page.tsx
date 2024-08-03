@@ -44,9 +44,12 @@ export default async function Home() {
           </div>
           <div className="banner">
             <Image
-              src={"./assets/smilingboy.png"}
+              src={"/smilingboy.png"}
               className=" w-full object-contain"
               alt="boy"
+              width={1080}
+              height={1080}
+
             />
           </div>
         </div>{" "}

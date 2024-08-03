@@ -14,7 +14,8 @@ const Navigation = ({ user }: Props) => {
     <div className="fixed top-0 right-0 left-0 p-4 flex items-center justify-between z-10">
       <aside className="flex items-center gap-2">
         <div className=" flex justify-center items-center">
-          <Image src={"./assets/cube.png"} alt="logo" className="h-10 w-10" />
+          <Image src={"/cube.png"} alt="logo" className="h-10 w-10" width={80} height={80} 
+ />
           <div className=" flex flex-col">
             <p className="font-bold text-3xl -mb-1">STAGE</p>
             <p className="font-bold happy-font text-[8px]">
