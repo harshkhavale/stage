@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -7,6 +8,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import ModalProvider from "@/providers/modal-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnarToaster } from "@/components/ui/sonner";
+import Navigation from '@/components/site/navigation';
 
 const font = Montserrat({ subsets: ["latin"], weight: "400" });
 
@@ -33,7 +35,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ModalProvider>
-            {children}
+            <ClerkProvider appearance={{ baseTheme: dark }}>
+              <main className="h-full">
+                <Navigation />
+                {children}
+              </main>
+            </ClerkProvider>
             <Toaster />
             <SonnarToaster position="bottom-left" />
           </ModalProvider>
