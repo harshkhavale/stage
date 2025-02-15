@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
@@ -8,9 +8,8 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import ModalProvider from "@/providers/modal-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as SonnarToaster } from "@/components/ui/sonner";
-import Navigation from '@/components/site/navigation';
 
-const font = Montserrat({ subsets: ["latin"], weight: "400" });
+const font = DM_Sans({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "STAGE",
@@ -37,7 +36,6 @@ export default function RootLayout({
           <ModalProvider>
             <ClerkProvider appearance={{ baseTheme: dark }}>
               <main className="h-full">
-                <Navigation />
                 {children}
               </main>
             </ClerkProvider>
