@@ -12,7 +12,7 @@ import { Toaster as SonnarToaster } from "@/components/ui/sonner";
 const font = DM_Sans({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "STAGE",
+  title: process.env.NEXT_APP_NAME,
   description: "All in one Platform for Agency's",
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/png" href="./assets/cube.png" />
       </head>
-      <body className={font.className}>
+      <body >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

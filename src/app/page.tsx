@@ -1,4 +1,4 @@
-import Navigation from "@/components/site/navigation";
+import { ModeToggle } from "@/components/global/mode-toggle";
 import {
   Card,
   CardContent,
@@ -9,10 +9,12 @@ import {
 } from "@/components/ui/card";
 import { pricingCards } from "@/lib/constants";
 import { stripe } from "@/lib/stripe";
+import { UserButton } from "@clerk/nextjs";
 import clsx from "clsx";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { User } from "@clerk/nextjs/server";
 
 export default async function Home() {
   const prices = await stripe.prices.list({
@@ -21,12 +23,49 @@ export default async function Home() {
   });
 
   return (
-    <>
-      <Navigation />
-
+    <div>
+      <div className="fixed top-0 right-0 left-0 p-4 flex items-center justify-between z-10">
+        <aside className="flex items-center gap-2">
+          <div className=" flex justify-center items-center">
+            <Image
+              src={"/cube.png"}
+              alt="logo"
+              className="h-10 w-10"
+              width={80}
+              height={80}
+            />
+            <div className=" flex flex-col">
+              <p className="font-bold text-3xl -mb-1">
+                {process.env.NEXT_APP_NAME}
+              </p>
+              <p className="font-bold happy-font text-[8px]">
+                a platform for everyone
+              </p>
+            </div>
+          </div>
+        </aside>
+        <nav className="hidden md:block absolute left-[50%] top-[50%] transform translate-x-[-50%] translate-y-[-50%]">
+          <ul className="flex items-center justify-center gap-8">
+            <Link href={"#"}>Pricing</Link>
+            <Link href={"#"}>About</Link>
+            <Link href={"#"}>Documentation</Link>
+            <Link href={"#"}>Features</Link>
+          </ul>
+        </nav>
+        <aside className="flex gap-2 items-center">
+          <Link
+            href={"/agency"}
+            className="bg-primary rounded-3xl text-white p-2 px-4 hover:bg-primary/80"
+          >
+            {!User ? "login" : "dashboard"}
+          </Link>
+          <UserButton />
+          <ModeToggle />
+        </aside>
+      </div>
       <section className="relative flex items-center justify-center flex-col ">
         {/* grid */}
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#d1d5db_1px,transparent_1px),linear-gradient(to_bottom,#d1d5db_1px,transparent_1px)] bg-[size:8rem_8rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" />
+        {/* <div className="absolute bottom-0 left-0 right-0 -top-1 bg-[linear-gradient(to_right,#d1d5db_1px,transparent_1px),linear-gradient(to_bottom,#d1d5db_1px,transparent_1px)] bg-[size:8rem_8rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" /> */}
         <div className="flex flex-col-reverse md:flex-row md:h-[100vh] overflow-hidden md:p-8 p-2 mt-12 items-center ">
           <div className="headlines">
             <p className="text-start text-5xl md:text-9xl font-bold">
@@ -59,7 +98,7 @@ export default async function Home() {
         </div>{" "}
         <div className="bg-gradient-to-r   from-primary to-teal-400 text-transparent bg-clip-text relative">
           <h1 className="text-5xl font-bold text-center md:text-[300px]">
-            STAGE
+            {process.env.NEXT_APP_NAME}
           </h1>
         </div>
         <div className="flex justify-center items-center relative">
@@ -179,6 +218,6 @@ export default async function Home() {
           </Card>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -87,8 +87,8 @@ const page = async ({ params }: Props) => {
               ? "Change Plan"
               : "Get Started"
           }
-          highlightDescription="Want to modify your plan? You can do this here. If you have
-          further question contact support@stage-app.com"
+          highlightDescription={`Want to modify your plan? You can do this here. If you have
+          further question contact support@${process.env.NEXT_APP_NAME}`}
           highlightTitle="Plan Options"
           description={
             agencySubscription?.Subscription?.active === true
